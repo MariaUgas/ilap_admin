@@ -1,0 +1,12 @@
+
+.contenedor-editor{
+    display:flex;
+}
+
+.edicion-curso > h2{
+    color: blue;
+}
+
+.imagen > img{
+    width: 400px;
+}
