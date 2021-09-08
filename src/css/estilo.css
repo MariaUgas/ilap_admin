@@ -1,12 +1,45 @@
-
-.contenedor-editor{
-    display:flex;
+.contenedor-editor {
+  display: flex;
+  flex-direction: column;
 }
 
-.edicion-curso > h2{
-    color: blue;
+.imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-logo {
+  width: 300px;
+  padding: 2em;
 }
 
-.imagen > img{
-    width: 400px;
+.btn-icon {
+  border: none;
+  background: transparent;
+}
+.btn-color {
+  background-color: #f2a152;
+  color: #2d2f3b;
+}
+.btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-editar {
+  cursor: pointer;
+}
+.btns-edition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/**Modal**/
+.edicion-curso > h2 {
+  color: #2d2f3b;
+  padding: 0 5%;
+}
+
+.form-group {
+  padding: 0 5%;
 }
