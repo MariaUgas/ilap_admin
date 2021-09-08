@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Menu />
         <Switch>
-          <Route exact path="/" component={Login}></Route>
+          <Route exact path="/ilap_admin" component={Login}></Route>
           <Route path="/catalogo" component={EdicionCatalogo}></Route>
           <Route path="/noticia" component={CrearNoticia}></Route>
         </Switch>
