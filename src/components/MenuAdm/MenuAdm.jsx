@@ -25,7 +25,11 @@ const MenuAdm = () => {
       <nav className="navbar navbar-expand-lg">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            {!usuario ? <Link className="nav-link" to="/" /> : <span></span>}
+            {!usuario ? (
+              <Link className="nav-link" to="/" />
+            ) : (
+              <span>login</span>
+            )}
           </li>
         </ul>
         {usuario ? (

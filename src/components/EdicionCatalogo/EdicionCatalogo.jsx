@@ -66,7 +66,7 @@ const EdicionCatalogo = () => {
     setModalidad("");
     setCosto("");
   };
-
+  //BorrarCursos
   const handlerDelete = async (id) => {
     try {
       await store.collection("cursos").doc(id).delete();
@@ -77,7 +77,7 @@ const EdicionCatalogo = () => {
       console.log(e);
     }
   };
-
+  //pulsarActualizacion
   const handlerUpdate = async (id) => {
     try {
       const data = await store.collection("cursos").doc(id).get();
@@ -193,7 +193,7 @@ const EdicionCatalogo = () => {
               {modoEdicion ? (
                 <input
                   type="submit"
-                  value="Guardar"
+                  value="Guardar" //Editar
                   className="btn btn-dark btn-block mt-4"
                 />
               ) : (
