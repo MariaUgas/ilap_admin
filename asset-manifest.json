@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/dmmc2021/static/css/main.25e0fe58.chunk.css",
+    "main.js": "/dmmc2021/static/js/main.df0485a5.chunk.js",
+    "main.js.map": "/dmmc2021/static/js/main.df0485a5.chunk.js.map",
+    "runtime-main.js": "/dmmc2021/static/js/runtime-main.96853ddd.js",
+    "runtime-main.js.map": "/dmmc2021/static/js/runtime-main.96853ddd.js.map",
+    "static/css/2.8b377334.chunk.css": "/dmmc2021/static/css/2.8b377334.chunk.css",
+    "static/js/2.cf65ffb0.chunk.js": "/dmmc2021/static/js/2.cf65ffb0.chunk.js",
+    "static/js/2.cf65ffb0.chunk.js.map": "/dmmc2021/static/js/2.cf65ffb0.chunk.js.map",
+    "index.html": "/dmmc2021/index.html",
+    "static/css/2.8b377334.chunk.css.map": "/dmmc2021/static/css/2.8b377334.chunk.css.map",
+    "static/css/main.25e0fe58.chunk.css.map": "/dmmc2021/static/css/main.25e0fe58.chunk.css.map",
+    "static/js/2.cf65ffb0.chunk.js.LICENSE.txt": "/dmmc2021/static/js/2.cf65ffb0.chunk.js.LICENSE.txt",
+    "static/media/LogoIlap.11affe0b.png": "/dmmc2021/static/media/LogoIlap.11affe0b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.96853ddd.js",
+    "static/css/2.8b377334.chunk.css",
+    "static/js/2.cf65ffb0.chunk.js",
+    "static/css/main.25e0fe58.chunk.css",
+    "static/js/main.df0485a5.chunk.js"
+  ]
+}
