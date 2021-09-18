@@ -26,14 +26,32 @@
   justify-content: center;
   align-items: center;
 }
+
 .btn-editar {
   cursor: pointer;
+  margin-left: 80px;
 }
+
+.btn-delete {
+  cursor: pointer;
+  margin-left: 120px;
+}
+
 .btns-edition {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+#cursos-id > h2{
+  text-align: center;
+  color:  #f38115;
+}
+
+.sub-head{
+  margin-top: 80px;
+}
+
 /**Modal**/
 .edicion-curso > h2 {
   color: #2d2f3b;
@@ -42,4 +60,40 @@
 
 .form-group {
   padding: 0 5%;
+}
+
+/****Icono agregar***/
+
+.sub-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+/*** MODULO DE NOTICIA ***/
+
+.contenedorN{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.tit-crear-n > h2{
+  text-align: center;
+  padding-bottom: 50px;
+  color: #f38115;
+}
+
+.contenedorN {
+  background: linear-gradient(
+    0deg,
+    rgba(217, 217, 217, 1) 0%,
+    rgba(230, 230, 230, 1) 35%,
+    rgba(246, 246, 246, 1) 100%
+  );
+  width: 1100px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  margin-bottom: 50px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
 }
