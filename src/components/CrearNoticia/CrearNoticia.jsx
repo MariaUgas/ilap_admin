@@ -80,7 +80,7 @@ const CrearNoticia = () => {
         <div style={{ paddingLeft: "30px", paddingRight: "30px" }}>
           <Form>
             <Form.Group className="mb-3" controlId="formGroupFecha">
-              <Form.Label style={{ color: "#000000" }}>Fecha</Form.Label>
+              <Form.Label style={{ color: "#000000" , fontWeight:"bold"}}>Fecha</Form.Label>
               <Form.Control
                 type="text"
                 readOnly
@@ -89,7 +89,7 @@ const CrearNoticia = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupTitulo">
-              <Form.Label style={{ color: "#000000" }}>Titulo</Form.Label>
+              <Form.Label style={{ color: "#000000", fontWeight:"bold"}}>Titulo</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ingrese Titulo"
@@ -98,7 +98,7 @@ const CrearNoticia = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupContenido">
-              <Form.Label style={{ color: "#000000" }}>Contenido </Form.Label>
+              <Form.Label style={{ color: "#000000", fontWeight:"bold"}}>Contenido </Form.Label>
               <Form.Control type="hidden" ref={parrafosRef} />
               <SunEditor
                 setContents=""
@@ -106,9 +106,9 @@ const CrearNoticia = () => {
                 //ref={contenidoRef}
                 placeholder="Ingrese contenido..."
                 minHeight="160px !important"
-                //height="160px"
+                height="250px"
                 onChange={handleEditorChange}
-                setDefaultStyle="height: auto"
+                //setDefaultStyle="height: auto"
                 setOptions={{
                   buttonList: [
                     ["undo", "redo"],
@@ -127,7 +127,7 @@ const CrearNoticia = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupAutor">
-              <Form.Label style={{ color: "#000000" }}>Autor</Form.Label>
+              <Form.Label style={{ color: "#000000", fontWeight:"bold" }}>Autor</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ingrese nombre del Autor"
@@ -136,7 +136,7 @@ const CrearNoticia = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupImagen">
-              <Form.Label style={{ color: "#000000" }}>
+              <Form.Label style={{ color: "#000000", fontWeight:"bold" }}>
                 URL de Imagen
               </Form.Label>
               <Form.Control
@@ -147,7 +147,7 @@ const CrearNoticia = () => {
               />
             </Form.Group>
           </Form>
-          <div className="btn-not">
+          <div className="btn-not" style={{marginLeft:"430px", marginTop:"50px", paddingBottom:"50px"}}>
             <Button
               variant="primary"
               style={{ background: "#2c303b" }}

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import store from "../../firebase/firebase.js";
 import EdicionCursos from "../EdicionCursos/EdicionCursos.jsx";
 import Modal from "react-bootstrap/Modal";
+import SelectArea from "../SelectArea/SelectArea.jsx";
 
 const EdicionCatalogo = () => {
   const [idCatalogo, setIdcatalogo] = useState("");
@@ -15,6 +16,8 @@ const EdicionCatalogo = () => {
   const [cursos, setCursos] = useState([]);
   const [show, setShow] = useState(false);
 
+  const itemCategoriaRef= useRef();
+
   useEffect(() => {
     const getCursos = async () => {
       const { docs } = await store.collection("cursos").get();
@@ -24,8 +27,11 @@ const EdicionCatalogo = () => {
     getCursos();
   }, []);
 
-  const setCatalogo = async (e) => {
+  const setAdd = async (e) => {
     e.preventDefault();
+
+    setIdarea(itemCategoriaRef.current.value);
+    
     if (!idarea.trim()) {
       setError("campo vacio");
     }
@@ -42,8 +48,8 @@ const EdicionCatalogo = () => {
       setError("campo vacio");
     }
 
-    const itemCursos = {
-      idarea: idarea,
+       const itemCursos = {
+      idarea:  itemCategoriaRef.current.value,
       idcurso: idcurso,
       curso: curso,
       modalidad: modalidad,
@@ -55,7 +61,7 @@ const EdicionCatalogo = () => {
       const { docs } = await store.collection("cursos").get();
       const nuevoArray = docs.map((item) => ({ id: item.id, ...item.data() }));
       setCursos(nuevoArray);
-      alert("curso agregado");
+      alert("Curso agregado");
     } catch (e) {
       console.log(e);
     }
@@ -65,18 +71,28 @@ const EdicionCatalogo = () => {
     setCurso("");
     setModalidad("");
     setCosto("");
+
+  
   };
+  
   //BorrarCursos
-  const handlerDelete = async (id) => {
-    try {
-      await store.collection("cursos").doc(id).delete();
-      const { docs } = await store.collection("cursos").get();
-      const nuevoArray = docs.map((item) => ({ id: item.id, ...item.data() }));
-      setCursos(nuevoArray);
-    } catch (e) {
-      console.log(e);
-    }
+   const handlerDelete = async (id) => {
+     if(window.confirm("Confirma la eliminación este curso?")){
+
+       try {
+         await store.collection("cursos").doc(id).delete();
+         const { docs } = await store.collection("cursos").get();
+         const nuevoArray = docs.map((item) => ({ id: item.id, ...item.data() }));
+         setCursos(nuevoArray);
+       } catch (e) {
+         console.log(e);
+       }
+     }
   };
+
+  
+
+
   //pulsarActualizacion
   const handlerUpdate = async (id) => {
     try {
@@ -92,6 +108,23 @@ const EdicionCatalogo = () => {
       setModoEdicion(true);
       setShow(true);
       console.log(id);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+   const handlerAdd = async () => {
+    try {
+      
+      setIdarea("");
+      setIdcurso("");
+      setCurso("");
+      setModalidad("");
+      setCosto("");
+      setModoEdicion(false);
+      setShow(true);
+
+      
     } catch (e) {
       console.log(e);
     }
@@ -120,12 +153,15 @@ const EdicionCatalogo = () => {
     setCurso("");
     setModalidad("");
     setCosto("");
-    setModoEdicion(false);
+    setModoEdicion(true);
   };
+
+  
+
 
   return (
     <div className="contenedor-editor">
-      <EdicionCursos handlerUpdate={handlerUpdate} />
+      <EdicionCursos handlerUpdate={handlerUpdate} handlerAdd={handlerAdd} handlerDelete={handlerDelete} />
       <Modal
         show={show}
         onHide={() => setShow(false)}
@@ -140,70 +176,104 @@ const EdicionCatalogo = () => {
         </Modal.Header>
         <Modal.Body>
           <div className="edicion-curso">
-            <h2>Edicion de Cursos</h2>
-            <form
-              className="form-group"
-              onSubmit={modoEdicion ? setUpdate : setCatalogo}
-            >
-              <input
-                className="form-control"
-                type="text"
-                value={idarea}
-                placeholder="Introduce codigo de categoria"
-                onChange={(e) => {
-                  setIdarea(e.target.value);
-                }}
-              />
-              <input
-                className="form-control mt-4"
-                type="text"
-                value={idcurso}
-                placeholder="Introduce codigo de curso"
-                onChange={(e) => {
-                  setIdcurso(e.target.value);
-                }}
-              />
-              <input
-                className="form-control mt-4"
-                type="text"
-                value={curso}
-                placeholder="Introduce nombre de curso"
-                onChange={(e) => {
-                  setCurso(e.target.value);
-                }}
-              />
-              <input
-                className="form-control mt-4"
-                type="text"
-                value={modalidad}
-                placeholder="Introduce modalidad"
-                onChange={(e) => {
-                  setModalidad(e.target.value);
-                }}
-              />
-              <input
-                className="form-control mt-4"
-                type="text"
-                value={costo}
-                placeholder="Introduce costo"
-                onChange={(e) => {
-                  setCosto(e.target.value);
-                }}
-              />
-              {modoEdicion ? (
-                <input
-                  type="submit"
-                  value="Guardar" //Editar
-                  className="btn btn-dark btn-block mt-4"
-                />
-              ) : (
-                <input
-                  type="submit"
-                  value="Agregar"
-                  className="btn btn-dark btn-block mt-4"
-                />
-              )}
-            </form>
+            {
+              modoEdicion?
+              (<h2>Edicion de Curso</h2>)
+              :
+              (<h2>Agregar Curso</h2>)
+            }
+            
+              {
+                modoEdicion?
+                (
+                  
+            <form className="form-group" onSubmit={setUpdate}>
+                  
+                 
+                  <input
+                    className="form-control mt-4"
+                    type="text"
+                    value={curso}
+                    placeholder="Introduce nombre de curso"
+                    required
+                    onChange={(e) => {
+                      setCurso(e.target.value);
+                    }}
+                  />
+                  <input
+                    className="form-control mt-4"
+                    type="text"
+                    value={modalidad}
+                    placeholder="Introduce modalidad"
+                    required
+                    onChange={(e) => {
+                      setModalidad(e.target.value);
+                    }}
+                  />
+                  <input
+                    className="form-control mt-4"
+                    type="text"
+                    value={costo}
+                    placeholder="Introduce costo"
+                    required
+                    onChange={(e) => {
+                      setCosto(e.target.value);
+                    }}
+                  />
+                 
+                    <button type="submit"
+                    className="btn btn-dark btn-block mt-4">
+                      Guardar
+                    </button>
+                    </form>
+                )
+                :
+                (
+                  /******VALIDAR FORMULARIO CAMPOS VACIOS**** */
+                  /*hacer lista desplegable para las categorias******************************/
+                  <form className="form-group">
+                    <SelectArea itemCategoriaRef={itemCategoriaRef} />
+                 
+                  <input
+                    className="form-control mt-4"
+                    type="text"
+                    value={curso}
+                    placeholder="Introduce nombre de curso"
+                    required
+                    onChange={(e) => {
+                      setCurso(e.target.value);
+                    }}
+                  />
+                  <input
+                    className="form-control mt-4"
+                    type="text"
+                    value={modalidad}
+                    placeholder="Introduce modalidad"
+                    required
+                    onChange={(e) => {
+                      setModalidad(e.target.value);
+                    }}
+                  />
+                  <input
+                    className="form-control mt-4"
+                    type="text"
+                    value={costo}
+                    placeholder="Introduce costo"
+                    required
+                    onChange={(e) => {
+                      setCosto(e.target.value);
+                    }}
+                  />
+                  <button type="submit"
+                className="btn btn-dark btn-block mt-4" onClick={setAdd}>
+                  Agregar 
+                </button>
+                </form> 
+                )
+              }
+                
+              
+           
           </div>
         </Modal.Body>
       </Modal>

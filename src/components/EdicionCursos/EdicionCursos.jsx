@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ItemAcordeonArea from "../ItemAcordeonArea/ItemAcordeonArea.jsx";
 import store from "../../firebase/firebase.js";
 
-function EdicionCursos({ handlerUpdate }) {
+function EdicionCursos({ handlerUpdate, handlerAdd, handlerDelete }) {
   const [areasObj, setAreasObj] = useState([]);
 
   useEffect(() => {
@@ -24,6 +24,8 @@ function EdicionCursos({ handlerUpdate }) {
       <ItemAcordeonArea
         mapaAreasObj={mapaAreasObj[0]}
         handlerUpdate={handlerUpdate}
+        handlerAdd={handlerAdd}
+        handlerDelete={handlerDelete}
       />
     </div>
   );

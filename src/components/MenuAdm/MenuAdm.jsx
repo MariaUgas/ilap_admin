@@ -17,7 +17,7 @@ const MenuAdm = () => {
   const CerrarSesion = () => {
     auth.signOut();
     setUsuario(null);
-    historial.push("/");
+    historial.push("/ilap_admin");
   };
 
   return (
@@ -28,12 +28,12 @@ const MenuAdm = () => {
             {!usuario ? (
               <Link className="nav-link" to="/" />
             ) : (
-              <span>login</span>
+              <span></span>
             )}
           </li>
         </ul>
         {usuario ? (
-          <button className="btn btn-danger float-rigth" onClick={CerrarSesion}>
+          <button className="btn btn-danger" style={{marginLeft:"1100px", marginTop:"50px"}} onClick={CerrarSesion}>
             Cerrar sesion
           </button>
         ) : (

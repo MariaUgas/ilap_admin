@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import store from "../../firebase/firebase.js";
 import Table from "react-bootstrap/Table";
-import { FcPlus, FcMinus, FcEditImage } from "react-icons/fc";
+import { FcEditImage } from "react-icons/fc";
+import { RiDeleteBinLine} from "react-icons/ri";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
-export const TablaCursos = ({ idarea, handlerUpdate }) => {
+export const TablaCursos = ({ idarea, handlerUpdate, handlerDelete }) => {
   const [objetoCursos, setObjetoCursos] = useState([]);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ export const TablaCursos = ({ idarea, handlerUpdate }) => {
           <thead>
             <tr>
               <th scope="col">Curso</th>
-              <th scope="col" width="30%">
+              <th scope="col" width="30%" style={{textAlign:"center"}}>
                 Acciones
               </th>
             </tr>
@@ -43,24 +44,44 @@ export const TablaCursos = ({ idarea, handlerUpdate }) => {
               <tr>
                 <td>{curso.curso}</td>
                 <td>
-                  <div className="btns-edition">
-                    <OverlayTrigger
-                      overlay={
-                        <Tooltip id={curso.id}>
-                          Editar Información del Curso
-                        </Tooltip>
-                      }
-                    >
-                      <button className="btn-icon">
-                        <FcEditImage
-                          className="btn-editar "
-                          size={24}
-                          onClick={(id) => {
-                            handlerUpdate(curso.id);
-                          }}
-                        />
-                      </button>
-                    </OverlayTrigger>
+                  <div className="group-btn" style={{display:"flex"}}>
+
+                            <div className="btns-edition">
+                              <OverlayTrigger
+                                overlay={
+                                  <Tooltip id={curso.id}>
+                                    Editar Información del Curso
+                                  </Tooltip>
+                                }
+                              >
+                                <button className="btn-icon">
+                                  <FcEditImage
+                                    className="btn-editar "
+                                    size={24}
+                                    onClick={(id) => {
+                                      handlerUpdate(curso.id);
+                                    }}
+                                  />
+                                </button>
+                              </OverlayTrigger>
+                            </div>
+                            <div className="btns-delete">
+                              <OverlayTrigger
+                                overlay={
+                                  <Tooltip id={curso.id}>
+                                    Eliminar Curso
+                                  </Tooltip>
+                                }
+                              >
+                                <button className="btn-icon">
+                                  <RiDeleteBinLine
+                                    className="btn-delete"
+                                    size={24}
+                                    onClick={()=>handlerDelete(curso.id)}
+                                  />
+                                </button>
+                              </OverlayTrigger>
+                            </div>
                   </div>
                 </td>
               </tr>
