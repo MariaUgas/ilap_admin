@@ -6,7 +6,9 @@ import SunEditor from "suneditor-react";
 import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import { GoInfo } from "react-icons/go";
-
+import { auth } from "../../firebase/firebase.js";
+import { useHistory } from "react-router-dom";
+import ilaplogo from "../../img/ilap-logo.png";
 import "suneditor/dist/css/suneditor.min.css";
 
 const CrearNoticia = () => {
@@ -28,7 +30,7 @@ const CrearNoticia = () => {
 
   const handleClean = () => {
     tituloRef.current.value = "";
-    // contenido.current.value = "";
+    parrafosRef.current.value = "";
     autorRef.current.value = "";
     imagenRef.current.value = "";
   };
@@ -59,8 +61,37 @@ const CrearNoticia = () => {
     return setSend(false);
   }, [send]);
 
+  const [usuario, setUsuario] = useState(null);
+  const historial = useHistory();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUsuario(user.email);
+      }
+    });
+  }, []);
+
+  const CerrarSesion = () => {
+    auth.signOut();
+    setUsuario(null);
+    historial.push("/ilap_admin");
+  };
+
+  const [userAdmin, setUserAdmin] = useState(null)
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) =>{
+      if (user.email === "admin@ilap.edu.ve" || user.email === "grasso@ilap.edu.ve"){
+        setUserAdmin(true)
+      }
+    })
+  }, []);
+
+
   return (
-    <>
+  
+    <body className="creacionN" style={{background:"#cccdd3"}}>
       <div className="div-toast">
         <ToastContainer className="p-3 sticky-div">
           <Toast onClose={() => setShow(false)} bg={tipoAlert} show={show}>
@@ -72,6 +103,29 @@ const CrearNoticia = () => {
             <Toast.Body>{message}</Toast.Body>
           </Toast>
         </ToastContainer>
+      </div>
+      <div>
+        <div>
+        <img src={ilaplogo} alt="LogoIlap" style={{width:"200px", marginTop:"50px", marginLeft:"120px"}}/>
+        </div>
+        {usuario ? (
+          
+         
+          <button className="btn btn-danger" style={{marginLeft:"1100px", marginTop:"20px", marginBottom:"30px"}} onClick={CerrarSesion}>
+            Cerrar sesion
+          </button>
+          
+          
+        ) : (
+          <span></span>
+        )}
+      </div>
+      <div>
+         {userAdmin ? (
+          <a href="/admin" style={{paddingLeft:"1100px", textDecoration:"none", fontWeight:"bold"}}> Regresar a Admin</a>
+           ) : (
+          <span></span>
+        )}
       </div>
       <div className="contenedorN">
         <div className="tit-crear-n">
@@ -158,7 +212,7 @@ const CrearNoticia = () => {
           </div>
         </div>
       </div>
-    </>
+    </body>
   );
 };
 export default CrearNoticia;

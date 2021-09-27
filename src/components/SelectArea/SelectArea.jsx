@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, {useState, useEffect, useRef} from "react"
 import store from "../../firebase/firebase.js";
 
@@ -46,8 +45,7 @@ const SelectArea = ({itemCategoriaRef}) => {
 }
 
 export default SelectArea;
-=======
-import React, { useState, useEffect, useRef } from "react";
+/*import React, { useState, useEffect, useRef } from "react";
 import store from "../../firebase/firebase.js";
 
 const SelectArea = ({ itemCategoriaRef }) => {
@@ -86,5 +84,4 @@ const SelectArea = ({ itemCategoriaRef }) => {
   );
 };
 
-export default SelectArea;
->>>>>>> master
+export default SelectArea;*/

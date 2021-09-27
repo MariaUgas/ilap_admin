@@ -5,18 +5,62 @@ import TablaCursos from "../TablaCursos/TablaCursos.jsx";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { FcPlus } from "react-icons/fc";
+import { auth } from "../../firebase/firebase.js";
+import { useHistory } from "react-router-dom";
+import ilaplogo from "../../img/ilap-logo.png";
 
-export const ItemAcordeonArea = ({ mapaAreasObj, handlerUpdate, handlerAdd, handlerDelete }) => {
+export const ItemAcordeonArea = ({ mapaAreasObj, handlerUpdate, handlerAdd, handlerDelete}) => {
 
+  const historial = useHistory();
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUsuario(user.email);
+      }
+    });
+  }, []);
+
+  const CerrarSesion = () => {
+    auth.signOut();
+    setUsuario(null);
+    historial.push("/ilap_admin");
+  };
+
+  const [userAdmin, setUserAdmin] = useState(null)
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) =>{
+      if (user.email === "admin@ilap.edu.ve" || user.email === "grasso@ilap.edu.ve"){
+        setUserAdmin(true)
+      }
+    })
+  }, []);
 
   
   return (
     <div className="contenedor-cursos" id="cursos-id">
+      <img src={ilaplogo} alt="" style={{width:"150px", marginTop:"50px"}}/>
+      <div>
+      {usuario ? (
+          <button className="btn btn-danger" style={{marginLeft:"1100px", marginTop:"0px"}} onClick={CerrarSesion}>
+            Cerrar sesion
+          </button>
+        ) : (
+          <span></span>
+        )}
+      </div>
       <h2>Administracion de Cursos</h2>
+      <div>
+         {userAdmin ? (
+          <a href="/admin" style={{paddingLeft:"1100px", textDecoration:"none", fontWeight:"bold"}}> Regresar a Admin</a>
+           ) : (
+          <span></span>
+        )}
+      </div>
       <div className="sub-head">
-
-      <h3 className="titulo">Cursos disponibles por categoría</h3>
-      <div className="btns-edition">
+        <div className="btns-edition" style={{marginLeft:"1000px", marginBottom:"25px"}}>
                     <OverlayTrigger
                       overlay={
                         <Tooltip >
@@ -31,12 +75,13 @@ export const ItemAcordeonArea = ({ mapaAreasObj, handlerUpdate, handlerAdd, hand
                           onClick={() => {
                             handlerAdd();
                           }}
+                          
                         />
                       </button>
                     </OverlayTrigger>
                   </div>
       </div>
-      <Accordion flush>
+      <Accordion flush style={{width:"70%", marginLeft:"auto", marginRight:"auto", marginBottom:"100px"}}>
         {mapaAreasObj &&
           mapaAreasObj.map((a, i) => {
             return (

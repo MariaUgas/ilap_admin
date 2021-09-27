@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../firebase/firebase.js";
+import Admin from "../Admin/Admin.jsx";
+import App from "../../App.js";
 
 const MenuAdm = () => {
   const historial = useHistory();
@@ -17,7 +19,7 @@ const MenuAdm = () => {
   const CerrarSesion = () => {
     auth.signOut();
     setUsuario(null);
-    historial.push("/ilap_admin");
+    historial.push("/");
   };
 
   return (
@@ -25,11 +27,9 @@ const MenuAdm = () => {
       <nav className="navbar navbar-expand-lg">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            {!usuario ? (
-              <Link className="nav-link" to="/" />
-            ) : (
-              <span></span>
-            )}
+            <Admin CerrarSesion={CerrarSesion}/>
+            <App CerrarSesion={CerrarSesion}/>
+            
           </li>
         </ul>
         {usuario ? (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { auth } from "../../firebase/firebase.js";
 import { useHistory } from "react-router-dom";
-import LogoIlap from "../../img/LogoIlap.png";
+import ilaplogo from "../../img/ilap-logo.png";
 
 const Login = () => {
   const historial = useHistory();
@@ -29,6 +29,13 @@ const Login = () => {
         if (email === "patricia@ilap.edu.ve") {
           historial.push("/noticia");
         }
+        if (email === "admin@ilap.edu.ve") {
+          historial.push("/admin");
+        }
+        if (email === "grasso@ilap.edu.ve") {
+          historial.push("/admin");
+        }
+        
       })
       .catch((err) => {
         /*auth/wrong-password*/
@@ -45,7 +52,7 @@ const Login = () => {
   return (
     <div>
       <div className="imagen">
-        <img src={LogoIlap} alt="" className="img-logo" />
+        <img src={ilaplogo} alt="" className="img-logo" />
       </div>
       <div className="row mt-5">
         <div className="col"></div>
@@ -75,8 +82,10 @@ const Login = () => {
             >
               Iniciar sesion
             </button>
-            {msgerror != null ? <div>{msgerror}</div> : <span></span>}
           </div>
+            <div className="msgError" style={{color:"red", textAlign:"center", fontWeight:"bold" ,marginTop:"20px"}}>
+              {msgerror != null ? <div>{msgerror}</div> : <span></span>}
+            </div>
         </div>
         <div className="col"></div>
       </div>
