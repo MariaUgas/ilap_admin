@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/ilap_admin/static/css/main.1415a891.chunk.css",
-    "main.js": "/ilap_admin/static/js/main.32a9027b.chunk.js",
-    "main.js.map": "/ilap_admin/static/js/main.32a9027b.chunk.js.map",
+    "main.css": "/ilap_admin/static/css/main.cb4e4521.chunk.css",
+    "main.js": "/ilap_admin/static/js/main.32539013.chunk.js",
+    "main.js.map": "/ilap_admin/static/js/main.32539013.chunk.js.map",
     "runtime-main.js": "/ilap_admin/static/js/runtime-main.0a2de515.js",
     "runtime-main.js.map": "/ilap_admin/static/js/runtime-main.0a2de515.js.map",
     "static/css/2.8b377334.chunk.css": "/ilap_admin/static/css/2.8b377334.chunk.css",
-    "static/js/2.8be0a7e1.chunk.js": "/ilap_admin/static/js/2.8be0a7e1.chunk.js",
-    "static/js/2.8be0a7e1.chunk.js.map": "/ilap_admin/static/js/2.8be0a7e1.chunk.js.map",
+    "static/js/2.d3750517.chunk.js": "/ilap_admin/static/js/2.d3750517.chunk.js",
+    "static/js/2.d3750517.chunk.js.map": "/ilap_admin/static/js/2.d3750517.chunk.js.map",
     "index.html": "/ilap_admin/index.html",
     "static/css/2.8b377334.chunk.css.map": "/ilap_admin/static/css/2.8b377334.chunk.css.map",
-    "static/css/main.1415a891.chunk.css.map": "/ilap_admin/static/css/main.1415a891.chunk.css.map",
-    "static/js/2.8be0a7e1.chunk.js.LICENSE.txt": "/ilap_admin/static/js/2.8be0a7e1.chunk.js.LICENSE.txt",
-    "static/media/LogoIlap.11affe0b.png": "/ilap_admin/static/media/LogoIlap.11affe0b.png"
+    "static/css/main.cb4e4521.chunk.css.map": "/ilap_admin/static/css/main.cb4e4521.chunk.css.map",
+    "static/js/2.d3750517.chunk.js.LICENSE.txt": "/ilap_admin/static/js/2.d3750517.chunk.js.LICENSE.txt",
+    "static/media/fondo.d274a0f5.jpg": "/ilap_admin/static/media/fondo.d274a0f5.jpg",
+    "static/media/ilap-logo.6471880b.png": "/ilap_admin/static/media/ilap-logo.6471880b.png"
   },
   "entrypoints": [
     "static/js/runtime-main.0a2de515.js",
     "static/css/2.8b377334.chunk.css",
-    "static/js/2.8be0a7e1.chunk.js",
-    "static/css/main.1415a891.chunk.css",
-    "static/js/main.32a9027b.chunk.js"
+    "static/js/2.d3750517.chunk.js",
+    "static/css/main.cb4e4521.chunk.css",
+    "static/js/main.32539013.chunk.js"
   ]
 }
