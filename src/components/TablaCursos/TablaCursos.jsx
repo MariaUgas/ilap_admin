@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import store from "../../firebase/firebase.js";
 import Table from "react-bootstrap/Table";
-import { FcEditImage } from "react-icons/fc";
+import { GrEdit } from "react-icons/gr";
 import { RiDeleteBinLine} from "react-icons/ri";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
@@ -55,7 +55,7 @@ export const TablaCursos = ({ idarea, handlerUpdate, handlerDelete }) => {
                                 }
                               >
                                 <button className="btn-icon">
-                                  <FcEditImage
+                                  <GrEdit
                                     className="btn-editar "
                                     size={24}
                                     onClick={(id) => {

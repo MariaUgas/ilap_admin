@@ -38,7 +38,8 @@ body{
 
 .btn-delete {
   cursor: pointer;
-  margin-left: 120px;
+  margin-left: 30px;
+  margin-right: 50px;
 }
 
 .btns-edition {
