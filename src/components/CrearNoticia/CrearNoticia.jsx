@@ -18,11 +18,16 @@ const CrearNoticia = () => {
   const autorRef = useRef();
   const imagenRef = useRef();
   const parrafosRef = useRef();
+  const editor = useRef();
 
   const [send, setSend] = useState(false);
   const [show, setShow] = useState(false);
   const [tipoAlert, setTipoAlert] = useState("");
   const [message, setMessage] = useState("");
+
+  const getSunEditorInstance = (sunEditor) => {
+    editor.current = sunEditor;
+  };
 
   const handleEditorChange = (content) => {
     parrafosRef.current.value = '"'.concat(content).concat('"');
@@ -33,6 +38,7 @@ const CrearNoticia = () => {
     parrafosRef.current.value = "";
     autorRef.current.value = "";
     imagenRef.current.value = "";
+    editor.current.setContents("");
   };
 
   useEffect(() => {
@@ -58,7 +64,7 @@ const CrearNoticia = () => {
     setShow(true);
     handleClean();
 
-    return setSend(false);
+    return  setSend(false);
   }, [send]);
 
   const [usuario, setUsuario] = useState(null);
@@ -92,18 +98,6 @@ const CrearNoticia = () => {
   return (
   
     <body className="creacionN" style={{background:"#cccdd3"}}>
-      <div className="div-toast">
-        <ToastContainer className="p-3 sticky-div">
-          <Toast onClose={() => setShow(false)} bg={tipoAlert} show={show}>
-            <Toast.Header closeButton={false}>
-              <GoInfo size={24} />
-              <strong className="me-auto">&nbsp;&nbsp;&nbsp;Información</strong>
-              <small>Justo ahora...</small>
-            </Toast.Header>
-            <Toast.Body>{message}</Toast.Body>
-          </Toast>
-        </ToastContainer>
-      </div>
       <div>
         <div>
         <img src={ilaplogo} alt="LogoIlap" style={{width:"200px", marginTop:"50px", marginLeft:"120px"}}/>
@@ -132,6 +126,18 @@ const CrearNoticia = () => {
           <h2>Creación de noticias</h2>
         </div>
         <div style={{ paddingLeft: "30px", paddingRight: "30px" }}>
+          <div className="div-toast">
+          <ToastContainer position="bottom-center" style={{zIndex:"100"}}>
+                <Toast onClose={() => setShow(false)} bg={tipoAlert} show={show} delay="5000" autohide>
+                  <Toast.Header closeButton={false}>
+                    <GoInfo size={24} />
+                    <strong className="me-auto">&nbsp;&nbsp;&nbsp;Información</strong>
+                    <small>Justo ahora...</small>
+                  </Toast.Header>
+                  <Toast.Body>{message}</Toast.Body>
+                </Toast>
+              </ToastContainer>
+            </div>
           <Form>
             <Form.Group className="mb-3" controlId="formGroupFecha">
               <Form.Label style={{ color: "#000000" , fontWeight:"bold"}}>Fecha</Form.Label>
@@ -162,6 +168,7 @@ const CrearNoticia = () => {
                 minHeight="160px !important"
                 height="250px"
                 onChange={handleEditorChange}
+                getSunEditorInstance={getSunEditorInstance}
                 //setDefaultStyle="height: auto"
                 setOptions={{
                   buttonList: [
@@ -200,7 +207,10 @@ const CrearNoticia = () => {
                 style={{ width: "100%" }}
               />
             </Form.Group>
+         
+             
           </Form>
+          
           <div className="btn-not" style={{marginLeft:"430px", marginTop:"50px", paddingBottom:"50px"}}>
             <Button
               variant="primary"
@@ -209,6 +219,7 @@ const CrearNoticia = () => {
             >
               Crear Noticia
             </Button>
+
           </div>
         </div>
       </div>

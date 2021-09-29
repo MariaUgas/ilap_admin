@@ -231,6 +231,7 @@ const EdicionCatalogo = () => {
                 (
                   /******VALIDAR FORMULARIO CAMPOS VACIOS**** */
                   /*hacer lista desplegable para las categorias******************************/
+                  
                   <form className="form-group">
                     <SelectArea itemCategoriaRef={itemCategoriaRef} />
                  
