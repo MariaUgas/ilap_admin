@@ -48,9 +48,10 @@ body{
   align-items: center;
 }
 
-#cursos-id > h2{
+#cursos-id > h1{
   text-align: center;
   color:  #f38115;
+  margin-bottom: 0;
 }
 
 .sub-head{
@@ -91,9 +92,9 @@ body{
   margin: 0 auto;
 }
 
-.tit-crear-n > h2{
+.tit-crear-n > h1{
   text-align: center;
-  padding-top: 50px;
+  padding-top: 0;
   padding-bottom: 20px;
   color: #f38115;
 }
@@ -118,9 +119,57 @@ body{
   font-weight: bold;
 }
 
+#cursos-id > div.sub-head > div > button{
+  margin-right: 100px;
+}
+
 
 /*MMMMMMMMMMMMMMMM MODULO ADMIN MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
 
 .contenedor{
   background: gray;
 }
+
+.container-nav {
+  padding: 18px;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0);
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container-nav ul {
+  margin-right: 10%;
+}
+.container-nav li {
+  list-style: none;
+  display: inline-flex;
+}
+
+.container-nav li a {
+  text-decoration: none;
+  padding: 14px 20px;
+  font-size: 20px;
+  color: darkslategray;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in;
+  font-family: "Play", sans-serif;
+}
+.container-nav li a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+.img-admin{
+  margin-top: 50px;
+}
+
+.img-admin > h1{
+  color: #f38115;
+  text-align: center;
+}
+

@@ -8,8 +8,8 @@ import ToastContainer from "react-bootstrap/ToastContainer";
 import { GoInfo } from "react-icons/go";
 import { auth } from "../../firebase/firebase.js";
 import { useHistory } from "react-router-dom";
-import ilaplogo from "../../img/ilap-logo.png";
 import "suneditor/dist/css/suneditor.min.css";
+import ilapLogo from "../../img/ilap-logo.png";
 
 const CrearNoticia = () => {
   const fecha = new Date().toLocaleDateString();
@@ -84,6 +84,10 @@ const CrearNoticia = () => {
     historial.push("/ilap_admin");
   };
 
+  const volverAdmin = () => {
+    historial.push("/admin");
+  };
+
   const [userAdmin, setUserAdmin] = useState(null)
 
   useEffect(() => {
@@ -98,33 +102,35 @@ const CrearNoticia = () => {
   return (
   
     <body className="creacionN" style={{background:"#cccdd3"}}>
-      <div>
-        <div>
-        <img src={ilaplogo} alt="LogoIlap" style={{width:"200px", marginTop:"50px", marginLeft:"120px"}}/>
-        </div>
-        {usuario ? (
-          
-         
-          <button className="btn btn-danger" style={{marginLeft:"1100px", marginTop:"20px", marginBottom:"30px"}} onClick={CerrarSesion}>
-            Cerrar sesion
-          </button>
-          
-          
+     <div class="container-nav">
+    <img src={ilapLogo} alt="logo-ilap" width="150px" style={{marginRight:"450px"}}/>
+    
+    <ul>
+     <li>
+      {userAdmin ? (
+            <a href="/admin" onClick={volverAdmin}>
+            Regresar a Admin
+          </a>
+           ) : (
+          <span style={{color:"transparent"}}>contenido para hacer espacio</span>
+        )}
+      </li>
+      <li>
+      {usuario ? (
+        <a href="javascript:void(0)" onClick={CerrarSesion} style={{fontWeight:"bold"}}>Cerrar sesion</a>
         ) : (
           <span></span>
         )}
+      </li>
+      </ul>
+  </div>
+  <hr />
+      <div className="img-admin">
+      <h1>Creación de Noticias</h1>
       </div>
-      <div>
-         {userAdmin ? (
-          <a href="/admin" style={{paddingLeft:"1100px", textDecoration:"none", fontWeight:"bold"}}> Regresar a Admin</a>
-           ) : (
-          <span></span>
-        )}
-      </div>
+      
       <div className="contenedorN">
-        <div className="tit-crear-n">
-          <h2>Creación de noticias</h2>
-        </div>
+       
         <div style={{ paddingLeft: "30px", paddingRight: "30px" }}>
           <div className="div-toast">
           <ToastContainer position="bottom-center" style={{zIndex:"100"}}>
@@ -140,7 +146,7 @@ const CrearNoticia = () => {
             </div>
           <Form>
             <Form.Group className="mb-3" controlId="formGroupFecha">
-              <Form.Label style={{ color: "#000000" , fontWeight:"bold"}}>Fecha</Form.Label>
+              <Form.Label style={{ color: "#000000" , fontWeight:"bold", paddingTop:"50px"}}>Fecha</Form.Label>
               <Form.Control
                 type="text"
                 readOnly

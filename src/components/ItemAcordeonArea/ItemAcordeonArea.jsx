@@ -7,7 +7,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { FcPlus } from "react-icons/fc";
 import { auth } from "../../firebase/firebase.js";
 import { useHistory } from "react-router-dom";
-import ilaplogo from "../../img/ilap-logo.png";
+import ilapLogo from "../../img/ilap-logo.png";
 
 export const ItemAcordeonArea = ({ mapaAreasObj, handlerUpdate, handlerAdd, handlerDelete}) => {
 
@@ -28,6 +28,10 @@ export const ItemAcordeonArea = ({ mapaAreasObj, handlerUpdate, handlerAdd, hand
     historial.push("/ilap_admin");
   };
 
+  const volverAdmin = () => {
+    historial.push("/admin");
+  };
+
   const [userAdmin, setUserAdmin] = useState(null)
 
   useEffect(() => {
@@ -41,26 +45,35 @@ export const ItemAcordeonArea = ({ mapaAreasObj, handlerUpdate, handlerAdd, hand
   
   return (
     <div className="contenedor-cursos" id="cursos-id">
-      <img src={ilaplogo} alt="" style={{width:"150px", marginTop:"50px"}}/>
-      <div>
+     
+     <div class="container-nav">
+    <img src={ilapLogo} alt="logo-ilap" width="150px" style={{marginRight:"450px"}}/>
+    
+    <ul>
+     <li>
+      {userAdmin ? (
+            <a href="/admin" onClick={volverAdmin}>
+            Regresar a Admin
+          </a>
+           ) : (
+            <span style={{color:"transparent"}}>contenido para hacer espacio</span>
+        )}
+      </li>
+      <li>
       {usuario ? (
-          <button className="btn btn-danger" style={{marginLeft:"1100px", marginTop:"0px"}} onClick={CerrarSesion}>
-            Cerrar sesion
-          </button>
+        <a href="javascript:void(0)" onClick={CerrarSesion} style={{fontWeight:"bold"}}>Cerrar sesion</a>
         ) : (
           <span></span>
         )}
-      </div>
-      <h2>Administracion de Cursos</h2>
-      <div>
-         {userAdmin ? (
-          <a href="/admin" style={{paddingLeft:"1100px", textDecoration:"none", fontWeight:"bold"}}> Regresar a Admin</a>
-           ) : (
-          <span></span>
-        )}
-      </div>
+      </li>
+      </ul>
+  </div>
+  <hr />
+  <div className="img-admin">
+    <h1>Edición de Cursos</h1>
+  </div>
       <div className="sub-head">
-        <div className="btns-edition" style={{marginLeft:"1000px", marginBottom:"25px"}}>
+        <div className="btns-edition" style={{marginLeft:"1050px", marginBottom:"25px"}}>
                     <OverlayTrigger
                       overlay={
                         <Tooltip >
@@ -68,10 +81,10 @@ export const ItemAcordeonArea = ({ mapaAreasObj, handlerUpdate, handlerAdd, hand
                         </Tooltip>
                       }
                     >
-                      <button className="btn-icon">
+                      <button className="btn-icon" >
                         <FcPlus
                           className="btn-agregar "
-                          size={24}
+                          size={35}
                           onClick={() => {
                             handlerAdd();
                           }}

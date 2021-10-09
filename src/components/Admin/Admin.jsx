@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { useHistory } from "react-router-dom";
 import fondo from "../../img/fondo.jpg";
+import ilapLogo from "../../img/ilap-logo.png";
 
 
 
@@ -28,29 +29,30 @@ export const Admin = () => {
   };
     
   return (
-  <div className="body-admin">
-           
-  <Navbar bg="dark" variant="dark">
-    <Container>
-        <div className="ladmin">
-            <Navbar.Brand href="#home" style={{color:"#f38115", fontWeight:"bold"}}>ILAP ADMINISTRACION</Navbar.Brand>
-        </div>
-    <Nav className="me-auto" style={{textAlign:"right"}}>
-     
-      <Nav.Link href="/catalogo" style={{paddingLeft:"800px"}}>Cursos</Nav.Link>
-      <Nav.Link href="/noticia">Noticias</Nav.Link>
-    </Nav>
-    </Container>
-  </Navbar>
+  <div>
+    <div class="container-nav">
+    <img src={ilapLogo} alt="logo-ilap" width="150px" style={{marginRight:"450px"}}/>
+    
+    <ul>
+      <li>
+        <a href="/catalogo">Cursos</a>
+      </li>
+      <li>
+        <a href="/noticia">Noticia</a>
+      </li>
+      <li>
       {usuario ? (
-          <button className="btn btn-danger" style={{marginLeft:"1100px", marginTop:"50px"}} onClick={CerrarSesion}>
-            Cerrar sesion
-          </button>
+        <a href="javascript:void(0)" onClick={CerrarSesion} style={{fontWeight:"bold"}}>Cerrar sesion</a>
         ) : (
           <span></span>
         )}
+      </li>
+      </ul>
+  </div>
+       <hr />
         <div className="img-admin">
-          <img src={fondo} alt="img-admin"/>
+        <h1>Administración Web</h1>
+          <img src={fondo} alt="img-admin" style={{marginLeft:"200px", marginTop:"70px"}}/>
         </div>
  </div>
 
