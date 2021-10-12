@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
 import App from "./App";
-import bootstrap from "bootstrap/dist/css/bootstrap.css"
+import bootstrap from "./css/bootstrap.min.css";
+import "./css/estilo.css";
 
 ReactDom.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById("root")
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
 );

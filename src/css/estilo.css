@@ -1,12 +1,175 @@
-
-.contenedor-editor{
-    display:flex;
+body{
+  background: #cccdd3;
 }
 
-.edicion-curso > h2{
-    color: blue;
+.contenedor-editor {
+  display: flex;
+  flex-direction: column;
 }
 
-.imagen > img{
-    width: 400px;
+.imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.img-logo {
+  width: 300px;
+  padding: 2em;
+}
+
+.btn-icon {
+  border: none;
+  background: transparent;
+}
+.btn-color {
+  background-color: #f2a152;
+  color: #2d2f3b;
+}
+.btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-editar {
+  cursor: pointer;
+  margin-left: 80px;
+}
+
+.btn-delete {
+  cursor: pointer;
+  margin-left: 30px;
+  margin-right: 50px;
+}
+
+.btns-edition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cursos-id > h1{
+  text-align: center;
+  color:  #f38115;
+  margin-bottom: 0;
+}
+
+.sub-head{
+ 
+  margin-top: 40px;
+}
+
+.contenedor-cursos > h2{
+  padding-top: 50px;
+}
+
+.img-admin{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**Modal**/
+.edicion-curso > h2 {
+  color: #2d2f3b;
+  padding: 0 5%;
+}
+
+.form-group {
+  padding: 0 5%;
+}
+
+/****Icono agregar***/
+
+.sub-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+/*** MODULO DE NOTICIA ***/
+
+.contenedorN{
+
+  margin: 0 auto;
+}
+
+.tit-crear-n > h1{
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 20px;
+  color: #f38115;
+}
+
+.contenedorN {
+  background: linear-gradient(
+    0deg,
+    rgba(217, 217, 217, 1) 0%,
+    rgba(230, 230, 230, 1) 35%,
+    rgba(246, 246, 246, 1) 100%
+  );
+  width: 1100px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  margin-bottom: 50px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+}
+
+#cursos-id > div.accordion.accordion-flush > div > h2 > button{
+  font-weight: bold;
+}
+
+#cursos-id > div.sub-head > div > button{
+  margin-right: 100px;
+}
+
+
+/*MMMMMMMMMMMMMMMM MODULO ADMIN MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
+
+.contenedor{
+  background: gray;
+}
+
+.container-nav {
+  padding: 18px;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0);
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container-nav ul {
+  margin-right: 10%;
+}
+.container-nav li {
+  list-style: none;
+  display: inline-flex;
+}
+
+.container-nav li a {
+  text-decoration: none;
+  padding: 14px 20px;
+  font-size: 20px;
+  color: darkslategray;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in;
+  font-family: "Play", sans-serif;
+}
+.container-nav li a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+.img-admin{
+  margin-top: 49px;
+}
+
+.img-admin > h1{
+  color: #f38115;
+  text-align: center;
+}
+
