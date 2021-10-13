@@ -5,8 +5,8 @@ import ilaplogo from "../../img/ilap-logo.png";
 
 const Login = () => {
   const historial = useHistory();
-  const [email, setEmail] = useState("nataly@ilap.edu.ve");
-  const [pass, setPass] = useState("passn.333");
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
   const [msgerror, setMsgError] = useState("");
 
   const RegistrarUsuario = (e) => {
@@ -52,7 +52,7 @@ const Login = () => {
   return (
     <div>
       <div className="imagen">
-        <img src={ilaplogo} alt="" className="img-logo" />
+        <img src={ilaplogo} alt="ilap-logo" className="img-logo" />
       </div>
       <div className="row mt-5">
         <div className="col"></div>
