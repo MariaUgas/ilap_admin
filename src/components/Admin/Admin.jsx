@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { auth } from "../../firebase/firebase.js";
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import { useHistory } from "react-router-dom";
 import fondo from "../../img/fondo.jpg";
 import ilapLogo from "../../img/ilap-logo.png";
@@ -35,10 +32,10 @@ export const Admin = () => {
     
     <ul>
       <li>
-        <a href="/catalogo">Cursos</a>
+        <a href="/catalogo7asf2XbP">Cursos</a>
       </li>
       <li>
-        <a href="/noticia">Noticia</a>
+        <a href="/noticiah7723BoC8">Noticia</a>
       </li>
       <li>
       {usuario ? (

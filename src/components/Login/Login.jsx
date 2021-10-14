@@ -24,16 +24,16 @@ const Login = () => {
       .signInWithEmailAndPassword(email, pass)
       .then((r) => {
         if (email === "nataly@ilap.edu.ve") {
-          historial.push("/catalogo");
+          historial.push("/catalogo7asf2XbP");
         }
         if (email === "patricia@ilap.edu.ve") {
-          historial.push("/noticia");
+          historial.push("/noticiah7723BoC8");
         }
         if (email === "admin@ilap.edu.ve") {
-          historial.push("/admin");
+          historial.push("/adminY0aES8zzD");
         }
         if (email === "grasso@ilap.edu.ve") {
-          historial.push("/admin");
+          historial.push("/adminY0aES8zzD");
         }
         
       })

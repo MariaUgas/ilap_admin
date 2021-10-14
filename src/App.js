@@ -27,9 +27,9 @@ function App() {
             <Router>
                 <Switch>
                   <Route exact path="/ilap_admin" component={Login}></Route>
-                  <Route path="/admin" component={Admin}></Route>
-                  <Route path="/catalogo" component={EdicionCatalogo}></Route>
-                  <Route path="/noticia" component={CrearNoticia}></Route>
+                  <Route path="/adminY0aES8zzD" component={Admin}></Route>
+                  <Route path="/catalogo7asf2XbP" component={EdicionCatalogo}></Route>
+                  <Route path="/noticiah7723BoC8" component={CrearNoticia}></Route>
                 </Switch>
             </Router>
            

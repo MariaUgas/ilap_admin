@@ -29,7 +29,7 @@ export const ItemAcordeonArea = ({ mapaAreasObj, handlerUpdate, handlerAdd, hand
   };
 
   const volverAdmin = () => {
-    historial.push("/admin");
+    historial.push("/adminY0aES8zzD");
   };
 
   const [userAdmin, setUserAdmin] = useState(null)
@@ -52,7 +52,7 @@ export const ItemAcordeonArea = ({ mapaAreasObj, handlerUpdate, handlerAdd, hand
     <ul>
      <li>
       {userAdmin ? (
-            <a href="/admin" onClick={volverAdmin}>
+            <a href="/adminY0aES8zzD" onClick={volverAdmin}>
             Regresar a Admin
           </a>
            ) : (

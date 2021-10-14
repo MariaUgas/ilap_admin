@@ -85,7 +85,7 @@ const CrearNoticia = () => {
   };
 
   const volverAdmin = () => {
-    historial.push("/admin");
+    historial.push("/adminY0aES8zzD");
   };
 
   const [userAdmin, setUserAdmin] = useState(null)
@@ -108,7 +108,7 @@ const CrearNoticia = () => {
     <ul>
      <li>
       {userAdmin ? (
-            <a href="/admin" onClick={volverAdmin}>
+            <a href="/adminY0aES8zzD" onClick={volverAdmin}>
             Regresar a Admin
           </a>
            ) : (
