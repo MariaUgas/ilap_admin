@@ -39,6 +39,7 @@ export const Admin = () => {
       </li>
       <li>
       {usuario ? (
+        //eslint-disable-next-line
         <a href="javascript:void(0)" onClick={CerrarSesion} style={{fontWeight:"bold"}}>Cerrar sesion</a>
         ) : (
           <span></span>

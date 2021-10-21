@@ -20,7 +20,7 @@ export const TablaCursos = ({ idarea, handlerUpdate, handlerDelete }) => {
   }, []);
 
   const mapeo = objetoCursos.map((cursos) => cursos);
-
+  //eslint-disable-next-line
   const filterByArea = mapeo.filter((curso) => {
     if (curso.idarea === idarea) {
       return true;

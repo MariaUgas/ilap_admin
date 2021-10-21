@@ -12,7 +12,9 @@ const EdicionCatalogo = () => {
   const [curso, setCurso] = useState("");
   const [modalidad, setModalidad] = useState("");
   const [costo, setCosto] = useState("");
+  //eslint-disable-next-line
   const [error, setError] = useState("");
+  //eslint-disable-next-line
   const [cursos, setCursos] = useState([]);
   const [show, setShow] = useState(false);
 
@@ -57,6 +59,7 @@ const EdicionCatalogo = () => {
     };
 
     try {
+      //eslint-disable-next-line
       const data = await store.collection("cursos").add(itemCursos);
       const { docs } = await store.collection("cursos").get();
       const nuevoArray = docs.map((item) => ({ id: item.id, ...item.data() }));

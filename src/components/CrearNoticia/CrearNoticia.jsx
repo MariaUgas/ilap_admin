@@ -1,4 +1,4 @@
-import React,{ useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import store from "../../firebase/firebase.js";
@@ -117,6 +117,7 @@ const CrearNoticia = () => {
       </li>
       <li>
       {usuario ? (
+        //eslint-disable-next-line
         <a href="javascript:void(0)" onClick={CerrarSesion} style={{fontWeight:"bold"}}>Cerrar sesion</a>
         ) : (
           <span></span>
