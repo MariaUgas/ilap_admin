@@ -5,9 +5,13 @@ import App from "./App";
 import bootstrap from "./css/bootstrap.min.css";
 import "./css/estilo.css";
 
+const divRoot = document.querySelector("#root")
+
 ReactDom.render(
-  <React.StrictMode>
+  [
+
     <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+  ],
+ 
+  divRoot
 );
